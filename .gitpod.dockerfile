@@ -11,7 +11,7 @@ ENV WINDOW_MANAGER="fluxbox"
 RUN __GOST_VERSION__="2.7.2" \
  && mkdir /tmp/gost \
  && cd /tmp/gost \
- && curl -v -L https://github.com/ginuerzh/gost/releases/download/v${__GOST_VERSION__}/gost_{__GOST_VERSION__}_linux_amd64.tar.gz | tar xz \
+ && curl -L https://github.com/ginuerzh/gost/releases/download/v${__GOST_VERSION__}/gost_${__GOST_VERSION__}_linux_amd64.tar.gz | tar xz \
  && cd gost_{__GOST_VERSION__}_linux_amd64 \
  && mv gost /usr/bin/ \
  && chmod +x /usr/bin/gost \

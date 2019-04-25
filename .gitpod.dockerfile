@@ -22,8 +22,7 @@ RUN __GOST_VERSION__="2.7.2" \
 
 RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/novnc-index.html \
  && curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/start-vnc-session.sh \
- && cp novnc-index.html /opt/novnc/index.html \
- && rm novnc-index.html \
+ && mv novnc-index.html /opt/novnc/index.html \
  && mv start-vnc-session.sh /usr/bin/ \
  && chmod +x /usr/bin/start-vnc-session.sh \
  && sed -ri "s/1920x1080/1366x830/g" /usr/bin/start-vnc-session.sh \

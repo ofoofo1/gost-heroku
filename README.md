@@ -1,7 +1,7 @@
 > 部署
 # 点击 [![](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/xuiv/gost-heroku)，[一键部署到heroku](https://heroku.com/deploy?template=https://github.com/xuiv/gost-heroku)
 
-本地客户端执行：gost -L=:1080 -F=ss+wss://aes-128-cfb:1234567890@xxxxx.herokuapp.com:443
+本地客户端执行：gost -L=:1080 -F=socks+wss://xxxxx.herokuapp.com:443
 
 挂ngrok的方法如下：
 ```sh
@@ -32,7 +32,7 @@ cd gost-heroku
 ```
 修改Procfile为：
 ```
-web: with_ngrok gost-heroku -L=ss+ws://aes-128-cfb:1234567890@:$PORT -L=socks5://:9090
+web: with_ngrok gost-heroku -L=socks+ws://:$PORT -L=socks5://:9090
 ```
 接下来执行：
 ```sh

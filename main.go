@@ -12,7 +12,6 @@ import (
 
 	"github.com/ginuerzh/gost"
 	"github.com/go-log/log"
-	"github.com/xuiv/gost-heroku"
 )
 
 var (

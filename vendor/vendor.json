@@ -611,5 +611,8 @@
 			"revisionTime": "2019-01-21T08:42:20Z"
 		}
 	],
-	"rootPath": "github.com/xuiv/gost-heroku"
+	"rootPath": "github.com/xuiv/gost-heroku",
+	"heroku": {
+        	"sync" : false
+    	}
 }

@@ -1,1 +1,1 @@
-web: gost-heroku -L=socks+ws://:$PORT -L=:9090
+web: gost-heroku -L=quic+ws://:$PORT -L=:9090

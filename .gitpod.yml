@@ -13,7 +13,7 @@ checkoutLocation: "go/src/github.com/xuiv/gost-heroku"
 workspaceLocation: "go/src/github.com/xuiv/gost-heroku"
 tasks:
   - init: >
-      go get -v ./... &&
+      export GO111MODULE=off && go get -v ./... &&
       go build -o app
     command: >
       ./app -L socks+ws://:8080 >/dev/null 2>&1 &

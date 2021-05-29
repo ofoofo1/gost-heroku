@@ -5,10 +5,14 @@ ports:
     onOpen: notify
   - port: 1081
     onOpen: notify
+  - port: 1082
+    onOpen: notify    
   - port: 6080
     onOpen: notify
   - port: 8080
     onOpen: notify
+  - port: 8088
+    onOpen: notify    
 checkoutLocation: "go/src/github.com/xuiv/gost-heroku"
 workspaceLocation: "go/src/github.com/xuiv/gost-heroku"
 tasks:
@@ -16,7 +20,7 @@ tasks:
       export GO111MODULE=off && go get -v ./... &&
       go build -o app
     command: >
-      ./app -L socks+ws://:8080 >/dev/null 2>&1 &
+      ./app -L socks+ws://:1082 >/dev/null 2>&1 &
 github:
     prebuilds:
         pullRequestsFromForks: true

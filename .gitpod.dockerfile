@@ -7,7 +7,8 @@ RUN add-apt-repository ppa:no1wantdthisname/ppa && apt-get update && apt-get -y 
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq language-pack-zh-hans-base xvfb x11vnc xterm megatools fonts-droid-fallback fonts-wqy-microhei fluxbox blackbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 deluge deluge-gtk \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo 'Asia/Shanghai' >/etc/timezone
+    && echo 'Asia/Shanghai' >/etc/timezone \
+    && echo "tmpfs /mnt tmpfs size=20g 0 0" >>/etc/fstab
 
 # overwrite this env variable to use a different window manager
 ENV LANG="zh_CN.UTF-8" 

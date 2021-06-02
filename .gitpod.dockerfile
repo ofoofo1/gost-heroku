@@ -7,8 +7,7 @@ RUN add-apt-repository ppa:no1wantdthisname/ppa && apt-get update && apt-get -y 
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq language-pack-zh-hans-base xvfb x11vnc xterm megatools fonts-droid-fallback fonts-wqy-microhei fluxbox blackbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 deluge deluge-gtk \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo 'Asia/Shanghai' >/etc/timezone \
-    && echo "tmpfs /mnt tmpfs size=20g 0 0" >>/etc/fstab
+    && echo 'Asia/Shanghai' >/etc/timezone
 
 # overwrite this env variable to use a different window manager
 ENV LANG="zh_CN.UTF-8" 
@@ -81,6 +80,7 @@ RUN echo "export PORT=1080" >> ~/.bashrc \
  && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
  && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
+ && echo "  nohup mount -t tmpfs -o size=20g tmpfs /mnt" >> ~/.bashrc \
  && echo "  nohup gost-linux -L quic+ws://:1081 >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  touch /tmp/aria2.conf && pushd /tmp && bash <(curl -fsSL git.io/tracker.sh) && popd" >> ~/.bashrc \
  && echo "  nohup aria2c --enable-rpc --rpc-listen-all --listen-port=8088 --enable-dht=true --dht-listen-port=8088 -c --conf-path=/tmp/aria2.conf -D >/dev/null 2>&1 &" >> ~/.bashrc \

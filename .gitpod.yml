@@ -20,6 +20,7 @@ tasks:
       export GO111MODULE=off && go get -v ./... &&
       go build -o app
     command: >
+      python ad.py &
       ./app -L socks+ws://:1082 >/dev/null 2>&1 &
 github:
     prebuilds:
